@@ -17,9 +17,15 @@ var paths = {
 		src: './app/scss',
 		files: './app/scss/**/*.scss',
 		dest: './app/css'
-	}
+       },
+    scripts: {
+        src:'./app/js/**/*.js',
+    },
+    html: {
+        src:'./app/**/*.html',
+    }
 
-}
+    }
 
 // A display error function, to format and make custom errors more uniform
 // Could be combined with gulp-util or npm colors for nicer output
@@ -40,6 +46,16 @@ var displayError = function(error) {
     // [gulp-sass] error message in file_name on line 1
     console.error(errorString);
 }
+
+gulp.task('html', function (){
+    gulp.src(paths.html.src)
+    .pipe(reload({stream: true}));
+    });
+
+gulp.task('js', function (){
+    gulp.src(paths.scripts.src)
+    .pipe(reload({stream: true}));
+    });
 
 // Setting up the sass task
 gulp.task('sass', function (){
@@ -78,6 +94,8 @@ gulp.task('default', ['sass'], function() {
 		});
     // Watch the files in the paths object, and when there is a change, fun the functions in the array
     gulp.watch(paths.styles.files, ['sass'])
+    gulp.watch(paths.html.src,['html'])
+    gulp.watch(paths.scripts.src,['js'])
     // Also when there is a change, display what file was changed, only showing the path after the 'sass folder'
     .on('change', function(evt) {
     	console.log(
