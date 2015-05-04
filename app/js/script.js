@@ -1,5 +1,4 @@
-var musicDur,musicPos,movableObj,currentTime,chapterCount,musicCircle;
-var angle,circleX,circleY;
+var musicDur,musicPos,movableObj,currentTime,chapterCount;
 
 var chapters = [convert('0:11.575'),convert('4:43.736'),convert('7:28.404'),
 convert('12:13.828'),convert('15:07.447'),convert('26:19.903'),convert('29:29.020'),
@@ -7,16 +6,15 @@ convert('33:48.616'),convert('35:48.616'),convert('37:07.892'),convert('44:02.41
 convert('51:47.344'),convert('58:17.951'),convert('62:57.393'),convert('70:35.049')];
 
 function preload() {
-	//mySound = createAudio('http://downloads.barning.org/MDN/Talking_Table_Review_Version.mp3');
-	mySound = createAudio('stimme.mp3');
+	mySound = createAudio('http://downloads.barning.org/MDN/Talking_Table_Review_Version.mp3');
 }
 
 function setup() {
-	var myCanvas = createCanvas(200, 200);
+	var myCanvas = createCanvas(50, 600);
 	myCanvas.parent('historyPlayer');
 
 	movableObj = getElement('movableObj');
-	movableObj.position(width+20,20);
+	movableObj.position(100,500);
 
 	chapterCount =12;
 
@@ -28,17 +26,6 @@ function setup() {
 function draw() {
 	if(!mySound.paused){
 		drawPlayer();
-		musicCircle = map(mySound.time(), 0, musicDur, 0, TAU);
-		fill(0,149,221);
-		arc(width/2, height/2, width, width, 0-HALF_PI,musicCircle-HALF_PI);
-		fill(102,153,0);
-		ellipse(width/2,height/2,width-20,width-20);
-
-		angle = atan2(mouseY-(height/2), mouseX-(width/2));
-		//circleX = (width/2)+cos(angle)*-width/3;
-		//circleY = (height/2)+sin(angle)*-height/3;
-		fill(255);
-		arc(width/2, height/2, width-20, width-20, 0-HALF_PI,angle);
 	}
 }
 
@@ -47,12 +34,12 @@ function drawPlayer() {
 
 	fill(234,239,242);
 	noStroke();
-	rect(0,0,width,height);
+	rect(0,0,width-10,height);
 
 	musicDur = mySound.duration();
 
-	//fill(50);
-	//rect(0,0,width-10,posInPlayer(mySound.time()));
+	fill(0,149,221);
+	rect(0,0,width-10,posInPlayer(mySound.time()));
 
 	for (var i = chapters.length - 1; i >= 0; i--) {
 		stroke(255);
@@ -62,7 +49,7 @@ function drawPlayer() {
 	fill(102,153,0);
 	ellipse(width-10,posInPlayer(mySound.time()),20,20);
 
-	//movableObj.position(width+15,posInPlayer(mySound.time())+20);
+	movableObj.position(width+15,posInPlayer(mySound.time())+20);
 	movableObj.html('<p>Click me for pausing!</p><p>Total lenght is<br>'+round(musicDur)+'s</p>'
 		+'<p>We played<br>'
 		+round(mySound.time())+'seconds</p>');
