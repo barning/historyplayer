@@ -10,11 +10,11 @@ function preload() {
 }
 
 function setup() {
-	var myCanvas = createCanvas(50, 600);
+	var myCanvas = createCanvas(50, 1000);
 	myCanvas.parent('historyPlayer');
 
 	movableObj = getElement('movableObj');
-	movableObj.position(100,500);
+	//movableObj.position(100,500);
 
 	chapterCount =12;
 
@@ -30,26 +30,26 @@ function draw() {
 }
 
 function drawPlayer() {
-	background(255);
-
-	fill(234,239,242);
+	clear();
 	noStroke();
-	rect(0,0,width-10,height);
+	fill('#f4f7f8');
+	rect(45/2,0,width-45,height);
 
 	musicDur = mySound.duration();
 
 	fill(0,149,221);
-	rect(0,0,width-10,posInPlayer(mySound.time()));
+	rect(45/2,0,width-45,posInPlayer(mySound.time()));
 
 	for (var i = chapters.length - 1; i >= 0; i--) {
-		stroke(255);
-		line(0,posInPlayer(chapters[i]),width-10,posInPlayer(chapters[i]));
+		stroke(244,247,248);
+		strokeWeight(4);
+		fill('#0095DD');
+		ellipse(width/2,posInPlayer(chapters[i]),15,15)
 	}
 	noStroke();
 	fill(102,153,0);
-	ellipse(width-10,posInPlayer(mySound.time()),20,20);
 
-	movableObj.position(width+15,posInPlayer(mySound.time())+20);
+	//movableObj.position(width+100,posInPlayer(mySound.time())+20);
 	movableObj.html('<p>Click me for pausing!</p><p>Total lenght is<br>'+round(musicDur)+'s</p>'
 		+'<p>We played<br>'
 		+round(mySound.time())+'seconds</p>');
@@ -67,7 +67,7 @@ function play_pause() {
 }
 
 function timeJump() {
-	var setTimeTo = setPosInPlayer(mouseY); 
+	var setTimeTo = setPosInPlayer(mouseY);
 	mySound.time(setTimeTo);
 }
 

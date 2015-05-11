@@ -3,31 +3,127 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="author" content="Martin Wolf">
+	<meta name="author" content="Niklas Barning">
 	<meta name="description" content="">
 
 
 	<title></title>
+	<link rel="stylesheet" type="text/css" href="//mozorg.cdn.mozilla.net/media/css/tabzilla-min.css">
+	<link rel="stylesheet" media="all" href="https://developer.cdn.mozilla.net/media/css/wiki-min.css?build=d9f09ac">
+	<link rel="stylesheet" media="all" href="https://developer.cdn.mozilla.net/media/css/mdn-min.css?build=d9f09ac">
 	<link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
-	<header id="header" class="">
+	<header id="main-header"><div class="center">
 
-	</header><!-- /header -->
-	<main>
-		<div id="historyPlayer">
-			<div id="movableObj">
-				
-			</div>
-		</div>
-	</main>
-	<footer>
-		
-	</footer>
-		<script src="http://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.2/p5.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.3/addons/p5.sound.min.js" type="text/javascript"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.2/addons/p5.dom.js"></script>
-    <script src="./js/script.js" type="text/javascript"></script>
+    <a aria-label="Mozilla links" href="//www.mozilla.org/" id="tabzilla" class="no-track loaded" data-infobar="update">mozilla</a>
+
+    <div class="clear header-clear"></div>
+
+    <a href="/de/" class="logo">Mozilla Developer Network</a>
+
+    <div class="header-login">
+
+
+      <form>
+        <div class="oauth-login-container">
+          <div class="oauth-login-options" tabindex="0">
+            <span class="oauth-login-options-text">
+              <span class="oauth-login-options-text-icons">Anmelden mit</span>
+              <span class="oauth-login-options-text-no-icons">Anmelden</span>
+            </span>
+            <span class="oauth-icon oauth-persona launch-persona-login" data-service="Persona" data-next="/de/docs/Web/JavaScript/Reference/Global_Objects/Math/max" title="Persona"><i class="icon-user" aria-hidden="true"></i></span>
+            <span class="oauth-icon oauth-github" data-service="GitHub" data-href="/users/github/login/?next=%2Fde%2Fdocs%2FWeb%2FJavaScript%2FReference%2FGlobal_Objects%2FMath%2Fmax" title="GitHub"><i class="icon-github" aria-hidden="true"></i></span>
+          </div>
+          <div class="submenu oauth-login-picker" aria-hidden="true">
+            <ul>
+              <li><a href="/de/users/signin" class="login-link launch-persona-login" data-next="/de/docs/Web/JavaScript/Reference/Global_Objects/Math/max" data-service="Persona"><i class="icon-user" aria-hidden="true"></i>Persona</a></li>
+              <li><a href="/users/github/login/?next=%2Fde%2Fdocs%2FWeb%2FJavaScript%2FReference%2FGlobal_Objects%2FMath%2Fmax" class="login-link" data-service="GitHub"><i class="icon-github" aria-hidden="true"></i>GitHub</a></li>
+            </ul>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <nav id="main-nav" role="navigation"><ul><li><a href="/de/docs/Zones">Bereiche<i aria-hidden="true" class="icon-caret-down"></i></a>
+
+      <div class="submenu submenu-single" id="nav-zones-submenu">
+        <div class="submenu-column">
+          <ul>
+            <li><a href="/de/Add-ons">Add-ons</a></li>
+            <li><a href="/en-US/docs/Apps">App-Zentrum</a></li>
+            <li><a href="/en-US/docs/Firefox">Firefox</a></li>
+            <li><a href="/de/Marketplace">Firefox Marketplace</a></li>
+            <li><a href="/en-US/docs/Firefox_OS">Firefox OS</a></li>
+            <li><a href="/en-US/docs/Persona">Persona</a></li>
+          </ul>
+        </div>
+      </div>
+    </li><li><a href="/de/docs/Web">Web-Plattform<i aria-hidden="true" class="icon-caret-down"></i></a>
+
+    <div class="submenu" id="nav-platform-submenu">
+      <div class="submenu-column">
+        <div class="title">Technologien</div>
+        <ul>
+          <li><a href="/de/docs/Web/HTML">HTML</a></li>
+          <li><a href="/de/docs/Web/CSS">CSS</a></li>
+          <li><a href="/de/docs/Web/JavaScript">JavaScript</a></li>
+          <li><a href="/de/docs/Web/Guide/Graphics">Grafiken</a></li>
+          <li><a href="/de/docs/Web/API">APIs / DOM</a></li>
+          <li><a href="/de/Apps">Apps</a></li>
+          <li><a href="/en-US/docs/Web/MathML">MathML</a></li>
+        </ul>
+      </div><div class="submenu-column last">
+      <div class="title">Referenzen &amp; Leitfäden</div>
+      <ul>
+        <li><a href="/de/Learn">Lernen Sie das Web</a></li>
+        <li><a href="/de/docs/Web/Tutorials">Anleitungen</a></li>
+        <li><a href="/de/docs/Web/Reference">Referenzen</a></li>
+        <li><a href="/de/docs/Web/Guide">Entwicklerleitfäden</a></li>
+        <li><a href="/de/docs/Web/Barrierefreiheit">Barrierefreiheit</a></li>
+        <li><a href="/de/demos/">Demos</a></li>
+        <li><a href="/de/docs/Web">…weitere Dokumente</a></li>
+      </ul>
+    </div>
+  </div>
+</li><li><a href="/de/docs/Tools">Werkzeuge</a></li><li><a href="/de/demos/">Demos</a></li><li><a href="/de/docs/Mozilla/Verbinden">Verbinden</a></li><li class="nav-search-link"><a href="/de/search" title="Search"><i aria-hidden="true" class="icon-search"></i></a></li><li class="main-nav-search"><form action="/de/search" method="get" role="search">
+<div class="search-wrap">
+  <label for="main-q" class="offscreen">Suchen</label>
+  <input id="main-q" name="q" placeholder="Suchen" data-value="" value="" type="search">
+  <span class="search-trigger"><i aria-hidden="true" class="icon-search"></i></span>&nbsp;
+  <button type="submit" class="offscreen">Suchen</button>
+</div>
+</form></li></ul></nav>
+</div></header>
+
+<main id="content"><div class="center clear">
+  <div class="infobox column-strip">
+    <h2>Contributions from other browser vendors</h2>
+    <h4>2000 - 2015</h4>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  </div>
+
+  <div class="portrait column-4">
+    <img src="./img/avatar.png" alt="">
+    <div class="textbox">
+      <h2>Jean-Yves Perrier</h2>
+      <h4>Tech Writer on MDN</h4>
+    </div>
+  </div>
+
+  <div id="historyPlayer">
+  </div>
+
+  <div id="movableObj" class="column-strip">
+  </div>
+</main>
+<footer>
+
+</footer>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.2/p5.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.3/addons/p5.sound.min.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.2/addons/p5.dom.js"></script>
+<script src="./js/script.js" type="text/javascript"></script>
 </body>
 </html>
