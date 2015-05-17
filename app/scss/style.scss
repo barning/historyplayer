@@ -1,41 +1,39 @@
 @import "lib/colors";
 @import "lib/mixins";
 
-main {
+
+#chapter {
 	background-color: #f4f7f8;
+	display: flex;
+	flex-flow: row wrap;
+	flex-direction: row;
+	justify-content: center;
+	padding: 5%;
 }
 
 .infobox {
-	float: left;
 	background: white;
-	padding: 20px;
+	width: 40%;
+	flex-grow: 1;
+	padding: 15px;
 	padding-top: 25px;
+	height: 100%;
 }
 
 .portrait {
-	float: left;
-	padding: 10px;
-	padding-top: 15px;
-
-	img {
-		float: left;
-		margin-right: 20px;
-	}
-
-	.textbox {
-		margin-top: 15px;
-	}
+	width: 40%;
+	flex-grow: 1;
+	text-align: center;
+	height: 100%;
 }
 
-#historyPlayer{
-	width: 50px;
-	margin: 20px;
-	margin-left: auto;
-	margin-right: auto;
+#verticalPlayer{
+	width: 55px;
+	flex-grow: 1;
 }
 
 #movableObj {
-	position: absolute;
+	position: fixed;
 	background: white;
 	right: 20px;
 	width: 150px;

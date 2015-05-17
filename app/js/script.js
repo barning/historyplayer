@@ -6,17 +6,19 @@ convert('33:48.616'),convert('35:48.616'),convert('37:07.892'),convert('44:02.41
 convert('51:47.344'),convert('58:17.951'),convert('62:57.393'),convert('70:35.049')];
 
 function preload() {
-	mySound = createAudio('http://downloads.barning.org/MDN/Talking_Table_Review_Version.mp3');
+	//mySound = createAudio('http://downloads.barning.org/MDN/Talking_Table_Review_Version.mp3');
+	mySound = createAudio('http://upload.wikimedia.org/wikipedia/en/0/04/Rayman_2_music_sample.ogg');
 }
 
 function setup() {
-	var myCanvas = createCanvas(50, 1000);
-	myCanvas.parent('historyPlayer');
+	var chapterHeight = $('#chapter').height();
+	var myCanvas = createCanvas(55, chapterHeight);
+	myCanvas.parent('verticalPlayer');
 
 	movableObj = getElement('movableObj');
 	//movableObj.position(100,500);
 
-	chapterCount =12;
+	chapterCount =chapters.lenght;
 
 	movableObj.mouseClicked(play_pause);
 	myCanvas.mouseClicked(timeJump);
@@ -25,35 +27,13 @@ function setup() {
 
 function draw() {
 	if(!mySound.paused){
-		drawPlayer();
+		clear();
+		playerElement();
+		//drawChapters();
+		movableObj.html('<p>Click me for pausing!</p><p>Total lenght is<br>'+round(musicDur)+'s</p>'
+			+'<p>We played<br>'
+			+round(mySound.time())+'seconds</p>');
 	}
-}
-
-function drawPlayer() {
-	clear();
-	noStroke();
-	fill('#f4f7f8');
-	rect(45/2,0,width-45,height);
-
-	musicDur = mySound.duration();
-
-	fill(0,149,221);
-	rect(45/2,0,width-45,posInPlayer(mySound.time()));
-
-	for (var i = chapters.length - 1; i >= 0; i--) {
-		stroke(244,247,248);
-		strokeWeight(4);
-		fill('#0095DD');
-		ellipse(width/2,posInPlayer(chapters[i]),15,15)
-	}
-	noStroke();
-	fill(102,153,0);
-
-	//movableObj.position(width+100,posInPlayer(mySound.time())+20);
-	movableObj.html('<p>Click me for pausing!</p><p>Total lenght is<br>'+round(musicDur)+'s</p>'
-		+'<p>We played<br>'
-		+round(mySound.time())+'seconds</p>');
-
 }
 
 function play_pause() {
@@ -84,4 +64,25 @@ function convert(input) {
 	minutes = +parts[0],
 	seconds = +parts[1];
 	return (minutes * 60 + seconds).toFixed(3);
+}
+
+function playerElement(){
+	noStroke();
+	fill('#f4f7f8');
+	rect(49/2,0,width-49,height);
+
+	musicDur = mySound.duration();
+
+	fill(0,149,221);
+	ellipse(width/2,posInPlayer(mySound.time()),15,15)
+	rect(49/2,0,width-49,posInPlayer(mySound.time()));
+}
+
+function drawChapters(){
+	for (var i = chapters.length - 1; i >= 0; i--) {
+		stroke(244,247,248);
+		strokeWeight(4);
+		fill('#0095DD');
+		ellipse(width/2,posInPlayer(chapters[i]),15,15)
+	}
 }
