@@ -15,13 +15,14 @@ function setup() {
 	var myCanvas = createCanvas(55, chapterHeight);
 	myCanvas.parent('verticalPlayer');
 
-	movableObj = getElement('movableObj');
+	//movableObj = getElement('movableObj');
 	//movableObj.position(100,500);
 
 	chapterCount =chapters.lenght;
 
-	movableObj.mouseClicked(play_pause);
+	//movableObj.mouseClicked(play_pause);
 	myCanvas.mouseClicked(timeJump);
+	mySound.paused = true;
 }
 
 function draw() {
@@ -31,9 +32,9 @@ function draw() {
 		playerElement();
 		//drawChapters();
 		if(!mySound.paused){
-		movableObj.html('<p>Click me for pausing!</p><p>Total lenght is<br>'+round(musicDur)+'s</p>'
-			+'<p>We played<br>'
-			+round(mySound.time())+'seconds</p>');
+		// movableObj.html('<p>Click me for pausing!</p><p>Total lenght is<br>'+round(musicDur)+'s</p>'
+		// 	+'<p>We played<br>'
+		// 	+round(mySound.time())+'seconds</p>');
 
 			$('.infobox > article').each(function(i) {
 				setTimeout(function(){
