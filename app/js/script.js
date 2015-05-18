@@ -22,20 +22,25 @@ function setup() {
 
 	movableObj.mouseClicked(play_pause);
 	myCanvas.mouseClicked(timeJump);
-	mySound.play();
+	//mySound.play();
 }
 
 function draw() {
-	if(!mySound.paused){
+
+
 		clear();
 		playerElement();
 		//drawChapters();
+		if(!mySound.paused){
 		movableObj.html('<p>Click me for pausing!</p><p>Total lenght is<br>'+round(musicDur)+'s</p>'
 			+'<p>We played<br>'
 			+round(mySound.time())+'seconds</p>');
-			if (mySound.time()>=5){
-				$( '.infobox article' ).addClass('animated fadeInDown');
-			}
+
+			$('.infobox > article').each(function(i) {
+				setTimeout(function(){
+						$(this).addClass('animated fadeIn');
+					}.bind(this), i * 5000)
+					});
 	}
 }
 
