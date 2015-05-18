@@ -1,32 +1,76 @@
-//@import url(http://fonts.googleapis.com/css?family=Fira+Sans:400,500,700);
+@import "lib/colors";
+@import "lib/mixins";
+@import "lib/animate";
 
-@mixin card-shadow{
-	box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.16), 0px 2px 10px 0px rgba(0, 0, 0, 0.12);
-	}
+.animated { visibility: visible !important; }
 
-body {
-	background-color: white;
-	margin: 0px;
-	padding: 0px;
+main {
+	background-color: #f4f7f8;
 }
 
-#historyPlayer{
-	margin: 20px;
+#chapter {
+	max-width: 750px;
+	display: flex;
+	flex-flow: row wrap;
+	flex-direction: row;
+	justify-content: center;
+	padding: 5%;
+}
+
+.title {
+	width: 40%;
+	flex-grow: 1;
+	text-align: center;
+	h2 {
+		margin-top: 45%;
+	}
+}
+
+.infobox {
+	width: 40%;
+	flex-grow: 1;
+	height: 100%;
+
+	article {
+		background: white;
+		padding: 15px;
+		padding-top: 25px;
+		margin-bottom: 5%;
+		visibility: hidden;
+	}
+	.portrait {
+		background: none;
+		padding-left: 0px;
+		margin-top: 10%;
+		h2 {
+			margin-top: 10px;
+		}
+		img {
+			float: left;
+			margin-right: 20px;
+		}
+	}
+}
+
+#verticalPlayer{
+	width: 55px;
+	flex-grow: 1;
 }
 
 #movableObj {
-	//font-family: 'Fira Sans', sans-serif;
-	position: absolute;
-	background: #F4F7F8;
+	position: fixed;
+	background: white;
+	display: none;
+	right: 20px;
 	width: 150px;
 	padding: 10px;
-	top: 0px;
+	top: 20px;
 	transition-property: box-shadow,background;
     transition-duration: .2s;
-    transition-timing-function: ease-in-out; 
-    color: #0095DD;
+    transition-timing-function: ease-in-out;
+    color: $link-color;
 	&:hover {
 		@include card-shadow;
-		background: darken(#F4F7F8,10%);
+		background: darken($primary,10%);
 	}
 }
