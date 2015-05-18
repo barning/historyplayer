@@ -22,7 +22,6 @@ function setup() {
 
 	movableObj.mouseClicked(play_pause);
 	myCanvas.mouseClicked(timeJump);
-	//mySound.play();
 }
 
 function draw() {
