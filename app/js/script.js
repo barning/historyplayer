@@ -33,6 +33,9 @@ function draw() {
 		movableObj.html('<p>Click me for pausing!</p><p>Total lenght is<br>'+round(musicDur)+'s</p>'
 			+'<p>We played<br>'
 			+round(mySound.time())+'seconds</p>');
+			if (mySound.time()>=5){
+				$( '.infobox article' ).addClass('animated fadeInDown');
+			}
 	}
 }
 
@@ -74,7 +77,8 @@ function playerElement(){
 	musicDur = mySound.duration();
 
 	fill(0,149,221);
-	ellipse(width/2,posInPlayer(mySound.time()),15,15)
+	ellipseMode(CENTER);
+	ellipse(width/2,posInPlayer(mySound.time())-1,5,5)
 	rect(49/2,0,width-49,posInPlayer(mySound.time()));
 }
 
@@ -83,6 +87,7 @@ function drawChapters(){
 		stroke(244,247,248);
 		strokeWeight(4);
 		fill('#0095DD');
+		ellipseMode(CENTER);
 		ellipse(width/2,posInPlayer(chapters[i]),15,15)
 	}
 }

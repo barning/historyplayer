@@ -1,9 +1,15 @@
 @import "lib/colors";
 @import "lib/mixins";
+@import "lib/animate";
 
+.animated { visibility: visible !important; }
+
+main {
+	background-color: #f4f7f8;
+}
 
 #chapter {
-	background-color: #f4f7f8;
+	max-width: 750px;
 	display: flex;
 	flex-flow: row wrap;
 	flex-direction: row;
@@ -11,20 +17,39 @@
 	padding: 5%;
 }
 
-.infobox {
-	background: white;
-	width: 40%;
-	flex-grow: 1;
-	padding: 15px;
-	padding-top: 25px;
-	height: 100%;
-}
-
-.portrait {
+.title {
 	width: 40%;
 	flex-grow: 1;
 	text-align: center;
+	h2 {
+		margin-top: 45%;
+	}
+}
+
+.infobox {
+	width: 40%;
+	flex-grow: 1;
 	height: 100%;
+
+	article {
+		background: white;
+		padding: 15px;
+		padding-top: 25px;
+		margin-bottom: 5%;
+		visibility: hidden;
+	}
+	.portrait {
+		background: none;
+		padding-left: 0px;
+		margin-top: 10%;
+		h2 {
+			margin-top: 10px;
+		}
+		img {
+			float: left;
+			margin-right: 20px;
+		}
+	}
 }
 
 #verticalPlayer{
@@ -35,6 +60,7 @@
 #movableObj {
 	position: fixed;
 	background: white;
+	display: none;
 	right: 20px;
 	width: 150px;
 	padding: 10px;
